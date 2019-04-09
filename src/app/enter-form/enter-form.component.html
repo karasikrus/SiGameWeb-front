@@ -1,0 +1,22 @@
+<p>
+  enter-form works!
+</p>
+<h1>{{onEnterMessage}}</h1>
+<div>  <label>name:
+  <input [(ngModel)]="enterFormData.name" placeholder="name"/>
+</label></div>
+<div>  <label>image url:
+  <input [(ngModel)]="enterFormData.avatarImageUrl" placeholder="image url"/>
+</label></div>
+
+<div class="enter-form-container">
+  <mat-form-field>
+    <input matInput [(ngModel)]="enterFormData.name" placeholder="name">
+  </mat-form-field>
+  <p></p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="enterFormData.avatarImageUrl" placeholder="image url">
+  </mat-form-field>
+  <p></p>
+  <button mat-button color="primary" (click)="handleClick()">Enter</button>
+</div>

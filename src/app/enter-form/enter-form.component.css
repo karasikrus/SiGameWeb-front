@@ -1,0 +1,8 @@
+.enter-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.enter-form > * {
+  width: 100%;
+}
