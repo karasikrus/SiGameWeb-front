@@ -1,0 +1,17 @@
+<p>
+  game-room-list works!
+</p>
+<ul class ="rooms">
+<li *ngFor="let room of rooms" (click)="onSelect(room)" [class.selected]="room === selectedRoom">
+<span class="badge">{{room.name}}</span> {{room.host.name}}
+</li>
+</ul>
+<div *ngIf="selectedRoom">
+<h2>{{selectedRoom.name | uppercase}} Details</h2>
+<div><span>Name: </span>{{selectedRoom.name}}</div>
+<div>
+  <label>Name of the host:
+    <input [(ngModel)]="selectedRoom.host.name" placeholder="name"/>
+  </label>
+</div>
+</div>

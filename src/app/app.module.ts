@@ -7,11 +7,13 @@ import { EnterFormComponent} from './enter-form/enter-form.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatInputModule} from '@angular/material';
+import { GameRoomListComponent } from './game-room-list/game-room-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EnterFormComponent,
+    GameRoomListComponent,
   ],
   imports: [
     BrowserModule,

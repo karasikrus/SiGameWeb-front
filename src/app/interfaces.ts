@@ -1,18 +1,18 @@
-interface User {
+export interface User {
   name: string;
   avatarPictureUrl?: string;
 }
-interface Player {
+export interface Player {
   user: User;
   score: number;
 }
-enum QuestionType {
+export enum QuestionType {
   standart,
   cat,
   auction,
   sponsored,
 }
-interface Question {
+export interface Question {
   type: QuestionType;
   text: string;
   comment: string;
@@ -26,21 +26,21 @@ interface Question {
   answerVideoUrl?: string;
   answered: boolean;
 }
-interface QuestionCategory {
+export interface QuestionCategory {
   name: string;
   comment: string;
   questions: Question[];
 }
-interface GameRound {
+export interface GameRound {
   name: string;
   questionCategories: QuestionCategory;
 }
-enum GameRoomState {
+export enum GameRoomState {
   WaitingForStart,
   GameInProcess,
   GameFinished,
 }
-interface GameRoom {
+export interface GameRoom {
   name: string;
   maxPlayers: number;
   players: Player[];
@@ -50,7 +50,7 @@ interface GameRoom {
   gameRounds: GameRound[];
   currentRound: number;
 }
-interface GameRoomList {
+export interface GameRoomList {
   gameRooms: GameRoom[];
 }
 
