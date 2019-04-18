@@ -8,12 +8,14 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatInputModule} from '@angular/material';
 import { GameRoomListComponent } from './game-room-list/game-room-list.component';
+import { GameRoomInfoComponent } from './game-room-info/game-room-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EnterFormComponent,
     GameRoomListComponent,
+    GameRoomInfoComponent,
   ],
   imports: [
     BrowserModule,

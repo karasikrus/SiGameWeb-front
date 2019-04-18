@@ -49,7 +49,10 @@ export interface GameRoom {
   state: GameRoomState;
   gameRounds: GameRound[];
   currentRound: number;
+
+
 }
+
 export interface GameRoomList {
   gameRooms: GameRoom[];
 }

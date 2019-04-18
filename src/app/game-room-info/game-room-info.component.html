@@ -1,0 +1,24 @@
+<p>
+  game-room-info works!
+</p>
+<div *ngIf="room">
+  <h2>{{room.name | uppercase}} Details</h2>
+  <div><span>Name: </span>{{room.name}}</div>
+  <div>
+    <label>Name of the host:
+      <input [(ngModel)]="room.host.name" placeholder="name"/>
+    </label>
+  </div>
+  <div>
+    <span>Max players: </span>{{room.maxPlayers}}
+  </div>
+  <div>
+    <span>Game state: </span>{{getState(room)}}
+  </div>
+  <div>
+    <button mat-button color="primary" (click)="EnterAsHost()">Войти ведущим</button>
+  </div>
+  <div>
+    <button mat-button color="primary" (click)="EnterAsPlayer()">Войти игроком</button>
+  </div>
+</div>
