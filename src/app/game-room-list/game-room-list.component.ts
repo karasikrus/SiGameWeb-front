@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GameRoom} from '../interfaces';
 import {ROOMS} from '../mock-gameRooms';
+import {GameRoomListService} from '../game-room-list.service';
 
 // gets game rooms from mock file
 @Component({
@@ -11,16 +12,21 @@ import {ROOMS} from '../mock-gameRooms';
 
 export class GameRoomListComponent implements OnInit {
 
-  rooms = ROOMS;
+  rooms: GameRoom[];
   selectedRoom: GameRoom;
+  getRooms(): void {
+    this.gameRoomListService.getRooms()
+      .subscribe(rooms => this.rooms = rooms);
+  }
 
   onSelect(room: GameRoom): void {
     this.selectedRoom = room;
   }
 
-  constructor() { }
+  constructor(private gameRoomListService: GameRoomListService) { }
 
   ngOnInit() {
+    this.getRooms();
   }
 
 }
