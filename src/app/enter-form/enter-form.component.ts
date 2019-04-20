@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EnterFormData } from './enter-form-data';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-enter-form',
@@ -15,8 +16,9 @@ export class EnterFormComponent implements OnInit {
 };
   handleClick() {
     alert('name = ' + this.enterFormData.name + '\nurl = ' + this.enterFormData.avatarImageUrl);
+    this.router.navigate(['/rooms']);
   }
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
