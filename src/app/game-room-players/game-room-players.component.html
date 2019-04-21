@@ -1,0 +1,10 @@
+<p>
+  game-room-players works!
+</p>
+<ul class = "players">
+<li *ngFor="let player of room.players">
+  <span class="playerName">{{player.user.name}}</span>
+  <br>
+  <span class="playerScore">Score: {{player.score}}</span>
+</li>
+</ul>

@@ -9,7 +9,7 @@ export const ROOMS: GameRoom[] = [
     maxPlayers: 3,
     name: 'room one',
     password: null,
-    players: [],
+    players: [{user: {name: 'vlad', avatarPictureUrl: null}, score: 0}, {user: {name: 'petr', avatarPictureUrl: null}, score: 0}],
     state: GameRoomState.WaitingForStart,
     playerTurn: false,
     hostTurn: true,

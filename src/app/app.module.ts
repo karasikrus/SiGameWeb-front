@@ -10,6 +10,7 @@ import {MatButtonModule, MatCheckboxModule, MatInputModule} from '@angular/mater
 import { GameRoomListComponent } from './game-room-list/game-room-list.component';
 import { GameRoomInfoComponent } from './game-room-info/game-room-info.component';
 import { GameRoomComponent } from './game-room/game-room.component';
+import { GameRoomPlayersComponent } from './game-room-players/game-room-players.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { GameRoomComponent } from './game-room/game-room.component';
     GameRoomListComponent,
     GameRoomInfoComponent,
     GameRoomComponent,
+    GameRoomPlayersComponent,
   ],
   imports: [
     BrowserModule,

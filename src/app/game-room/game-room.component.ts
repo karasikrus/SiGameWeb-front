@@ -1,9 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import {GameRoom} from '../interfaces';
 import {ROOMS} from '../mock-gameRooms';
-import {User} from '../interfaces';
+import {User, GameRoom} from '../interfaces';
 import {GameRoomListService} from '../game-room-list.service';
 
 
@@ -14,15 +13,19 @@ import {GameRoomListService} from '../game-room-list.service';
 })
 export class GameRoomComponent implements OnInit {
   id: number;
-
+  room: GameRoom;
   host: User;
+
+  getRoom(): void {
+    this.gameRoomListService.getRoom(this.id)
+      .subscribe(room => this.room = room);
+  }
 
   getId(): void {
     this.id = +this.route.snapshot.paramMap.get('id');
   }
   getHost(): void {
-    this.gameRoomListService.getHost(this.id)
-      .subscribe(host => this.host = host);
+    this.host = this.room.host;
   }
 
   constructor(
@@ -33,6 +36,7 @@ export class GameRoomComponent implements OnInit {
 
   ngOnInit() {
     this.getId();
+    this.getRoom();
     this.getHost();
   }
 
