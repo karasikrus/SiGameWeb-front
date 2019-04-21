@@ -33,7 +33,7 @@ export interface QuestionCategory {
 }
 export interface GameRound {
   name: string;
-  questionCategories: QuestionCategory;
+  questionCategories: QuestionCategory[];
 }
 export enum GameRoomState {
   WaitingForStart,
@@ -49,8 +49,9 @@ export interface GameRoom {
   state: GameRoomState;
   gameRounds: GameRound[];
   currentRound: number;
-
-
+  playerTurn: boolean;
+  hostTurn: boolean;
+  activePlayer: Player;
 }
 
 export interface GameRoomList {

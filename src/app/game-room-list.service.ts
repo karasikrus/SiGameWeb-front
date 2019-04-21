@@ -12,5 +12,6 @@ export class GameRoomListService {
     return of(ROOMS);
   }
 
+
   constructor() { }
 }

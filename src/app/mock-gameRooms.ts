@@ -10,6 +10,9 @@ export const ROOMS: GameRoom[] = [
     password: null,
     players: [],
     state: GameRoomState.WaitingForStart,
+    playerTurn: false,
+    hostTurn: true,
+    activePlayer: null
   },
   { currentRound: null,
     gameRounds: null,
@@ -18,5 +21,9 @@ export const ROOMS: GameRoom[] = [
     name: 'room two',
     password: null,
     players: [],
-    state: GameRoomState.WaitingForStart, }
+    state: GameRoomState.WaitingForStart,
+    playerTurn: false,
+    hostTurn: true,
+    activePlayer: null
+  }
 ];
