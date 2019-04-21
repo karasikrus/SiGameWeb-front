@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {GameRoom} from '../interfaces';
+import {Component, Input, OnInit} from '@angular/core';
+import {GameRoom, User} from '../interfaces';
 import {ROOMS} from '../mock-gameRooms';
 import {GameRoomListService} from '../game-room-list.service';
 
@@ -14,9 +14,13 @@ export class GameRoomListComponent implements OnInit {
 
   rooms: GameRoom[];
   selectedRoom: GameRoom;
+  isCreating: boolean;
   getRooms(): void {
     this.gameRoomListService.getRooms()
       .subscribe(rooms => this.rooms = rooms);
+  }
+  createRoom(): void {
+    this.isCreating = true;
   }
 
   onSelect(room: GameRoom): void {
@@ -27,6 +31,7 @@ export class GameRoomListComponent implements OnInit {
 
   ngOnInit() {
     this.getRooms();
+    this.isCreating = false;
   }
 
 }

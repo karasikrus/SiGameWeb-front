@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EnterFormData } from './enter-form-data';
 import {Router} from '@angular/router';
+import {GameRoomListService} from '../game-room-list.service';
+import {User} from '../interfaces';
 
 @Component({
   selector: 'app-enter-form',
@@ -16,9 +18,14 @@ export class EnterFormComponent implements OnInit {
 };
   handleClick() {
     alert('name = ' + this.enterFormData.name + '\nurl = ' + this.enterFormData.avatarImageUrl);
+    const user: User = {
+      name: this.enterFormData.name,
+      avatarPictureUrl: this.enterFormData.avatarImageUrl
+    };
+    this.gameRoomListService.enter(user);
     this.router.navigate(['/rooms']);
   }
-  constructor(private router: Router) { }
+  constructor(private router: Router, private gameRoomListService: GameRoomListService) { }
 
   ngOnInit() {
   }

@@ -8,6 +8,13 @@ import {ROOMS} from './mock-gameRooms';
   providedIn: 'root'
 })
 export class GameRoomListService {
+
+  currentUser: User;
+
+  enter(user: User): void {
+
+  }
+
   getRooms(): Observable<GameRoom[]> {
     return of(ROOMS);
   }
@@ -20,6 +27,19 @@ export class GameRoomListService {
   getPlayers(id: number): Observable<Player[]> {
     return of (ROOMS.find(x => x.id === id).players);
   }
+  createNewRoom(newRoom: GameRoom): number {
+    let id: number;
+    const room: GameRoom = newRoom;
+    // TODO
+    return id;
+  }
+  enterRoomAsHost(id: number): void {
+    // TODO
+  }
+  enterRoomAsPlayer(id: number): void {
+    // TODO
+  }
+
 
 
   constructor() { }

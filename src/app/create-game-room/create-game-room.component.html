@@ -1,0 +1,19 @@
+<p>
+  create-game-room works!
+</p>
+<div *ngIf="isCreating" class="create-game-room-container">
+<mat-form-field>
+  <input matInput [(ngModel)]="newRoom.name" placeholder="name">
+</mat-form-field>
+<p></p>
+<mat-form-field>
+  <input matInput [(ngModel)]="newRoom.maxPlayers" placeholder="max players">
+</mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="newRoom.password" placeholder="password">
+  </mat-form-field>
+<p></p>
+  <button mat-button color="primary" (click)="createAsHost()">Create and enter as host</button>
+  <p></p>
+  <button mat-button color="primary" (click)="createAsPlayer()">Create and enter as player</button>
+</div>

@@ -8,3 +8,5 @@
 </ul>
 
 <app-game-room-info [room]="selectedRoom"></app-game-room-info>
+<button mat-button color="primary" (click)="createRoom()">Create room</button>
+<app-create-game-room [isCreating]="isCreating"></app-create-game-room>
