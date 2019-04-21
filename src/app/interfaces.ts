@@ -41,6 +41,7 @@ export enum GameRoomState {
   GameFinished,
 }
 export interface GameRoom {
+  id: number;
   name: string;
   maxPlayers: number;
   players: Player[];

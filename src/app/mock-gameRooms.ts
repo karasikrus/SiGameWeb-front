@@ -2,7 +2,8 @@ import {GameRoom, GameRoomList, GameRoomState, Player, User} from './interfaces'
 
 
 export const ROOMS: GameRoom[] = [
-  { currentRound: null,
+  { id: 2,
+    currentRound: null,
     gameRounds: null,
     host: {name: 'vanya', avatarPictureUrl: null},
     maxPlayers: 3,
@@ -14,7 +15,8 @@ export const ROOMS: GameRoom[] = [
     hostTurn: true,
     activePlayer: null
   },
-  { currentRound: null,
+  { id: 7,
+    currentRound: null,
     gameRounds: null,
     host: {name: 'maxim', avatarPictureUrl: null},
     maxPlayers: 2,

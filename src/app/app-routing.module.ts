@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {GameRoomListComponent} from './game-room-list/game-room-list.component';
 import {EnterFormComponent} from './enter-form/enter-form.component';
+import {GameRoomComponent} from './game-room/game-room.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/enter', pathMatch: 'full' },
   {path: 'rooms', component: GameRoomListComponent},
-  {path: 'enter', component: EnterFormComponent}
+  {path: 'enter', component: EnterFormComponent},
+  { path: 'room/:id', component: GameRoomComponent}
 ];
 
 @NgModule({
