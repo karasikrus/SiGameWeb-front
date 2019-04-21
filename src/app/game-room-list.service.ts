@@ -10,9 +10,13 @@ import {ROOMS} from './mock-gameRooms';
 export class GameRoomListService {
 
   currentUser: User;
+  hostIsApproving = true;
 
   enter(user: User): void {
 
+  }
+  getHostApproval(): Observable<boolean>{
+    return of(this.hostIsApproving);
   }
 
   getRooms(): Observable<GameRoom[]> {
@@ -32,6 +36,17 @@ export class GameRoomListService {
     const room: GameRoom = newRoom;
     // TODO
     return id;
+  }
+  answerIsCorrect(): void {
+    // TODO
+    this.hostIsApproving = false;
+  }
+  answerIsIncorrect(): void {
+    // TODO
+    this.hostIsApproving = false;
+  }
+  initiateHostApproval(): void {
+    this.hostIsApproving = true;
   }
   enterRoomAsHost(id: number): void {
     // TODO

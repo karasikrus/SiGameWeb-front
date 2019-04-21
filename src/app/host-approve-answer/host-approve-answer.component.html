@@ -1,0 +1,10 @@
+<p>
+  host-approve-answer works!
+</p>
+<div *ngIf="hostIsApproving" class="host-approve-answer-container">
+
+  <p></p>
+  <button mat-button color="primary" (click)="correct()">Верно</button>
+  <p></p>
+  <button mat-button color="primary" (click)="incorrect()">Неверно</button>
+</div>

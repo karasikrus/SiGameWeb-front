@@ -15,11 +15,20 @@ export class GameRoomComponent implements OnInit {
   id: number;
   room: GameRoom;
   host: User;
+  hostIsApproving: boolean;
 
   getRoom(): void {
     this.gameRoomListService.getRoom(this.id)
       .subscribe(room => this.room = room);
   }
+  initiateHostApproval(): void {
+    this.gameRoomListService.initiateHostApproval();
+  }
+  getHostApproval(): void {
+    this.gameRoomListService.getHostApproval()
+      .subscribe(hostIsApproving => this.hostIsApproving = hostIsApproving);
+  }
+
 
   getId(): void {
     this.id = +this.route.snapshot.paramMap.get('id');
@@ -38,6 +47,7 @@ export class GameRoomComponent implements OnInit {
     this.getId();
     this.getRoom();
     this.getHost();
+    this.getHostApproval();
   }
 
 }

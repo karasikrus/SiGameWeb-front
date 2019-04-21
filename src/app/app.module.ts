@@ -12,6 +12,7 @@ import { GameRoomInfoComponent } from './game-room-info/game-room-info.component
 import { GameRoomComponent } from './game-room/game-room.component';
 import { GameRoomPlayersComponent } from './game-room-players/game-room-players.component';
 import { CreateGameRoomComponent } from './create-game-room/create-game-room.component';
+import { HostApproveAnswerComponent } from './host-approve-answer/host-approve-answer.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CreateGameRoomComponent } from './create-game-room/create-game-room.com
     GameRoomComponent,
     GameRoomPlayersComponent,
     CreateGameRoomComponent,
+    HostApproveAnswerComponent,
   ],
   imports: [
     BrowserModule,

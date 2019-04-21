@@ -5,4 +5,6 @@
   <h3> Ведущий </h3>
   <p> {{host.name}} </p>
 </div>
+<button mat-button color="primary" (click)="initiateHostApproval()">Заставить ведущего делать выбор</button>
 <app-game-room-players [room]="room"></app-game-room-players>
+<app-host-approve-answer [hostIsApproving]="hostIsApproving"></app-host-approve-answer>
