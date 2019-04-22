@@ -4,11 +4,14 @@ h1 {
   font-size: 250%;
 }
 :host{
-  background-color: #0047af;
+  background: #000451 linear-gradient(to bottom, #000451 0%, #183cf3 50%, #000451 100%);
 }
 .app{
-  background-color: #0100af;
+  background: #000451 linear-gradient(to bottom, #000451 0%, #183cf3 50%, #000451 100%);
   color: #dcff4b;
+  height:100%;
+  margin: 0;
+  padding: 0;
 }
 a{
   color: white;
