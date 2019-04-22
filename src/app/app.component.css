@@ -3,3 +3,13 @@ h1 {
   font-family: 'Baloo Chettan', cursive;
   font-size: 250%;
 }
+:host{
+  background-color: #0047af;
+}
+.app{
+  background-color: #0100af;
+  color: #dcff4b;
+}
+a{
+  color: white;
+}

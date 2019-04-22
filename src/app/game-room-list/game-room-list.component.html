@@ -1,12 +1,14 @@
-<p>
-  game-room-list works!
-</p>
-<ul class ="rooms">
-<li *ngFor="let room of rooms" (click)="onSelect(room)" [class.selected]="room === selectedRoom">
-<span class="badge">{{room.name}}</span> {{room.host.name}}
-</li>
-</ul>
-
-<app-game-room-info [room]="selectedRoom"></app-game-room-info>
-<button mat-button color="primary" (click)="createRoom()">Create room</button>
+<div class="game-room-list">
+<div class="left">
+  <ul class ="rooms">
+    <li *ngFor="let room of rooms" (click)="onSelect(room)" [class.selected]="room === selectedRoom">
+      <span class="badge">{{room.name}}</span>
+    </li>
+  </ul>
+  <button mat-button color="primary" (click)="createRoom()">Create room</button>
+</div>
+<div class="right">
+  <app-game-room-info [room]="selectedRoom"></app-game-room-info>
+</div>
+</div>
 <app-create-game-room [isCreating]="isCreating"></app-create-game-room>
