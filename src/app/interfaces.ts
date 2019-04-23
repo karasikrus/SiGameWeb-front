@@ -25,10 +25,12 @@ export interface Question {
   answerPictureUrl?: string;
   answerVideoUrl?: string;
   answered: boolean;
+  id: number;
 }
 export interface QuestionCategory {
   name: string;
   comment: string;
+  id: number;
   questions: Question[];
 }
 export interface GameRound {
