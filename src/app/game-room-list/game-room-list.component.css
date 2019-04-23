@@ -1,44 +1,53 @@
-.rooms li:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
+.game-room-list{
+  text-align: center;
+  align-items: stretch;
+  justify-content: center;
+  display: flex;
+}
+.left{
+  align-content: center;
+  flex: 0.5;
+}
+.right{
+  flex: 0.5;
+  align-content: stretch;
+  display: block;
+}
+
+.rooms mat-list-item:hover {
+  color: #760000;
+  background-color: rgb(152, 185, 255);
 }
 .selected {
-  background-color: #CFD8DC !important;
-  color: white;
+  background-color: #5a95e2 !important;
+  color: #760000;
 }
-.rooms li.selected:hover {
-  background-color: #BBD8DC !important;
-  color: white;
+.rooms mat-list-item.selected:hover {
+  background-color: rgba(90, 149, 226, 0.85) !important;
+  color: #760000;
+  display: block;
 }
-.badge{
-  display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color: #607D8B;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  height: 1.8em;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
 
-}
-.rooms li {
+.rooms mat-list-item {
+  display: block;
   cursor: pointer;
   position: relative;
   left: 0;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 1.6em;
-  border-radius: 4px;
+  background-color: rgba(192, 207, 244, 0.94);
+  color: #760000;
+  margin: 0;
+  padding: 0;
+  height: 3em;
 }
 .rooms {
-  margin: 0 0 2em 0;
+  margin: 0 0 0 0;
   list-style-type: none;
   padding: 0;
-  width: 15em;
+}
+button{
+  color: #dcff4b;
+  background-color: #0009ad;
+  width: 100%;
+  border-radius: 0;
+  align-self: end;
 }

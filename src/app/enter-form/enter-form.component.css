@@ -1,8 +1,27 @@
 .enter-form{
   display: flex;
   flex-direction: column;
+  width: 50%;
+  margin-right: 25%;
+  margin-left: 25%;
+  padding: 50%;
+  border: 2px solid black;
+
 }
 
 .enter-form > * {
-  width: 100%;
+  width: 50%;
+}
+.enter-form-container {
+  text-align: center;
+  background-color: #5397ff;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-bottom: 10%;
+}
+mat-form-field{
+  color: white;
+}
+mat-placeholder{
+  color: #dcff4b;
 }
