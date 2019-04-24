@@ -8,7 +8,8 @@
       <div>
         <mat-list class="questions">
           <mat-list-item class="question" *ngFor="let question of category.questions">
-            <span> {{question.cost}} </span>
+            <span *ngIf="!question.answered"> {{question.cost}} </span>
+            <span *ngIf="question.answered">  </span>
           </mat-list-item>
         </mat-list>
       </div>
