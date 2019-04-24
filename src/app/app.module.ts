@@ -17,6 +17,9 @@ import { HostApproveAnswerComponent } from './host-approve-answer/host-approve-a
 import { QuestionComponent } from './question/question.component';
 import { QuestionTableComponent } from './question-table/question-table.component';
 
+import { WebsocketService } from "./websocket.service";
+import { DataMoveService } from "./data-move.service";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +43,10 @@ import { QuestionTableComponent } from './question-table/question-table.componen
     MatInputModule,
     MatListModule,
   ],
-  providers: [],
+  providers: [
+      WebsocketService,
+      DataMoveService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
