@@ -4,8 +4,8 @@
 <div class="question-table">
   <mat-list class="categories">
     <mat-list-item class="category" *ngFor="let category of room.gameRounds[room.currentRound].questionCategories">
-      <div>{{category.name}}</div>
-      <div>
+      <div class="category-name">{{category.name}}</div>
+      <div class="category-questions">
         <mat-list class="questions">
           <mat-list-item class="question" *ngFor="let question of category.questions">
             <span *ngIf="!question.answered" (click)="chooseQuestion(category.id, question.id)"> {{question.cost}} </span>
