@@ -3,7 +3,7 @@ import {GameRoom, GameRoomList, GameRoomState, Player, User} from './interfaces'
 
 export const ROOMS: GameRoom[] = [
   { id: 2,
-    currentRound: null,
+    currentRound: 0,
     currentCategoryId: null,
     currentQuestionId: null,
     gameRounds: null,
@@ -15,7 +15,7 @@ export const ROOMS: GameRoom[] = [
     state: GameRoomState.WaitingForStart,
     playerTurn: false,
     hostTurn: true,
-    activePlayer: null
+    activePlayerName: null
   },
   { id: 7,
     currentRound: null,
@@ -30,7 +30,7 @@ export const ROOMS: GameRoom[] = [
     state: GameRoomState.WaitingForStart,
     playerTurn: false,
     hostTurn: true,
-    activePlayer: null
+    activePlayerName: null
   },
   { id: 8,
     currentRound: null,
@@ -45,6 +45,6 @@ export const ROOMS: GameRoom[] = [
     state: GameRoomState.WaitingForStart,
     playerTurn: false,
     hostTurn: true,
-    activePlayer: null
+    activePlayerName: null
   }
 ];

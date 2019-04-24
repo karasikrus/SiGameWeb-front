@@ -25,7 +25,7 @@ export class CreateGameRoomComponent implements OnInit {
     currentQuestionId: null,
     playerTurn: false,
     hostTurn: false,
-    activePlayer: null,
+    activePlayerName: null,
   };
   createAsHost(): void {
     const id = this.gameRoomListService.createNewRoom(this.newRoom);
