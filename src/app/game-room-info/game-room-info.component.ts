@@ -27,7 +27,7 @@ export class GameRoomInfoComponent implements OnInit {
         return 'Игра окончена';
       }
       case (GameRoomState.GameInProcess || GameRoomState.AnswerIsShown ||
-        GameRoomState.PlayerIsAnswering || GameRoomState.PlayerIsChooseingQuestion || GameRoomState.QuestionIsShown): {
+        GameRoomState.PlayerIsAnswering || GameRoomState.PlayerIsChoosingQuestion || GameRoomState.QuestionIsShown): {
         return 'Идёт игра';
       }
       default: {

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
-import {GameRoom, Player, Question, User, UserStatus} from './interfaces';
+import {GameRoom, GameRoomState, Player, Question, User, UserStatus} from './interfaces';
 import {ROOMS} from './mock-gameRooms';
 
 
@@ -20,6 +20,14 @@ export class GameRoomListService {
     of(ROOMS)
       .subscribe(x => this.rooms = x);
   }
+  chooseQuestion(roomId: number, categoryId: number, questionId: number): void {
+    const currentRoom = this.rooms.find(x => x.id === roomId);
+    // const currentQuestion = currentRoom.gameRounds[currentRoom.currentRound].questionCategories.find(x => x.id === categoryId).questions
+    //  .find(x => x.id === questionId);
+    currentRoom.currentCategoryId = categoryId;
+    currentRoom.currentQuestionId = questionId;
+  }
+
 
   enter(user: User): void {
     this.currentUser = user;
@@ -31,7 +39,9 @@ export class GameRoomListService {
   }
   getCurrentQuestion(roomId: number): Observable<Question> {
     const currentRoom: GameRoom = this.rooms.find(x => x.id === roomId);
-    return of(currentRoom.gameRounds[currentRoom.currentRound].questionCategories.find(x => x.id === currentRoom.currentCategoryId).questions.find(x => x.id === currentRoom.currentQuestionId));
+    return of(currentRoom.gameRounds[currentRoom.currentRound].questionCategories
+      .find(x => x.id === currentRoom.currentCategoryId).questions
+      .find(x => x.id === currentRoom.currentQuestionId));
   }
 
   getRooms(): Observable<GameRoom[]> {
@@ -58,13 +68,55 @@ export class GameRoomListService {
     this.rooms.push(room);
     return id;
   }
-  answerIsCorrect(): void {
+  answerIsCorrect(roomId: number): void {
     // TODO
     this.hostIsApproving = false;
+    this.addScore(roomId);
+    this.makeQuestionAnswered(roomId);
+    this.changeRoomState(roomId, GameRoomState.AnswerIsShown);
   }
-  answerIsIncorrect(): void {
+  addScore(roomId: number): void {
+    const currentRoom = this.rooms.find(x => x.id === roomId);
+    const currentPlayerName = this.rooms.find(x => x.id === roomId).activePlayerName;
+    const currentAnswerCost = currentRoom.gameRounds[currentRoom.currentRound].questionCategories
+      .find(x => x.id === currentRoom.currentCategoryId).questions
+      .find(x => x.id === currentRoom.currentQuestionId).cost;
+    this.rooms.find(x => x.id === roomId).players.find(x => x.user.name === currentPlayerName)
+      .score += currentAnswerCost;
+  }
+  subtractScore(roomId: number): void {
+    const currentRoom = this.rooms.find(x => x.id === roomId);
+    const currentPlayerName = this.rooms.find(x => x.id === roomId).activePlayerName;
+    const currentAnswerCost = currentRoom.gameRounds[currentRoom.currentRound].questionCategories
+      .find(x => x.id === currentRoom.currentCategoryId).questions
+      .find(x => x.id === currentRoom.currentQuestionId).cost;
+    this.rooms.find(x => x.id === roomId).players.find(x => x.user.name === currentPlayerName)
+      .score -= currentAnswerCost;
+  }
+  answerIsIncorrect(roomId: number): void {
     // TODO
     this.hostIsApproving = false;
+    this.subtractScore(roomId);
+  }
+  showAnswer(roomId: number): void {
+    setTimeout(fn => {
+      this.changeRoomState(roomId, GameRoomState.PlayerIsChoosingQuestion);
+    }, 3000);
+  }
+  changeRoomState(roomId: number, newState: GameRoomState) {
+    this.rooms.find(x => x.id === roomId).state = newState;
+  }
+  beginAnswer(roomId: number): void {
+    const currentRoom = this.rooms.find(x => x.id === roomId);
+    currentRoom.activePlayerName = this.currentUser.name;
+    this.changeRoomState(roomId, GameRoomState.PlayerIsAnswering);
+  }
+  makeQuestionAnswered(roomId: number): void {
+    const currentRoom = this.rooms.find(x => x.id === roomId);
+    currentRoom.gameRounds[currentRoom.currentRound].questionCategories
+      .find(x => x.id === currentRoom.currentCategoryId).questions
+      .find(x => x.id === currentRoom.currentQuestionId)
+      .answered = true;
   }
   initiateHostApproval(): void {
     this.hostIsApproving = true;

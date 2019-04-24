@@ -10,6 +10,10 @@ import {GameRoom} from '../interfaces';
 export class QuestionTableComponent implements OnInit {
   @Input() room: GameRoom;
 
+  chooseQuestion(categoryId: number, questionId: number) {
+    this.gameRoomListService.chooseQuestion(this.room.id, categoryId, questionId);
+  }
+
   constructor(private gameRoomListService: GameRoomListService) { }
 
   ngOnInit() {
