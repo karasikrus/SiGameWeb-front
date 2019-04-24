@@ -14,6 +14,8 @@ import { GameRoomComponent } from './game-room/game-room.component';
 import { GameRoomPlayersComponent } from './game-room-players/game-room-players.component';
 import { CreateGameRoomComponent } from './create-game-room/create-game-room.component';
 import { HostApproveAnswerComponent } from './host-approve-answer/host-approve-answer.component';
+import { QuestionComponent } from './question/question.component';
+import { QuestionTableComponent } from './question-table/question-table.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { HostApproveAnswerComponent } from './host-approve-answer/host-approve-a
     GameRoomPlayersComponent,
     CreateGameRoomComponent,
     HostApproveAnswerComponent,
+    QuestionComponent,
+    QuestionTableComponent,
   ],
   imports: [
     BrowserModule,
