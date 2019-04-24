@@ -1,0 +1,18 @@
+<p>
+  question-table works!
+</p>
+<div class="question-table">
+  <mat-list class="categories">
+    <mat-list-item class="category" *ngFor="let category of room.gameRounds[room.currentRound].questionCategories">
+      <div>{{category.name}}</div>
+      <div>
+        <mat-list class="questions">
+          <mat-list-item class="question" *ngFor="let question of category.questions">
+            <span *ngIf="!question.answered" (click)="chooseQuestion(category.id, question.id)"> {{question.cost}} </span>
+            <span *ngIf="question.answered">  </span>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</div>

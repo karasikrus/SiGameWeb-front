@@ -41,7 +41,7 @@ export enum GameRoomState {
   WaitingForStart,
   GameInProcess,
   GameFinished,
-  PlayerIsChooseingQuestion,
+  PlayerIsChoosingQuestion,
   QuestionIsShown,
   PlayerIsAnswering,
   AnswerIsShown,
@@ -60,10 +60,15 @@ export interface GameRoom {
   currentQuestionId: number;
   playerTurn: boolean;
   hostTurn: boolean;
-  activePlayer: Player;
+  activePlayerName: string;
 }
 
 export interface GameRoomList {
   gameRooms: GameRoom[];
+}
+export enum UserStatus {
+  Host,
+  Player,
+  Noone,
 }
 

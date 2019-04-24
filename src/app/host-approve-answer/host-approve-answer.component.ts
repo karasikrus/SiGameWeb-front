@@ -8,12 +8,13 @@ import {GameRoomListService} from '../game-room-list.service';
 })
 export class HostApproveAnswerComponent implements OnInit {
   @Input() hostIsApproving: boolean;
+  @Input() roomId: number;
 
   correct(): void {
-    this.gameRoomListService.answerIsCorrect();
+    this.gameRoomListService.answerIsCorrect(this.roomId);
   }
   incorrect(): void {
-    this.gameRoomListService.answerIsIncorrect();
+    this.gameRoomListService.answerIsIncorrect(this.roomId);
   }
 
   constructor(private gameRoomListService: GameRoomListService) { }
