@@ -66,4 +66,9 @@ export interface GameRoom {
 export interface GameRoomList {
   gameRooms: GameRoom[];
 }
+export enum UserStatus {
+  Host,
+  Player,
+  Noone,
+}
 

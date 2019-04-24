@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {GameRoom, GameRoomState} from '../interfaces';
+import {GameRoomListService} from '../game-room-list.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-game-room-info',
@@ -12,7 +14,7 @@ import {GameRoom, GameRoomState} from '../interfaces';
 export class GameRoomInfoComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(private router: Router, private gameRoomListService: GameRoomListService) { }
 
   @Input() room: GameRoom;
 
@@ -24,7 +26,8 @@ export class GameRoomInfoComponent implements OnInit {
       case GameRoomState.GameFinished: {
         return 'Игра окончена';
       }
-      case GameRoomState.GameInProcess: {
+      case (GameRoomState.GameInProcess || GameRoomState.AnswerIsShown ||
+        GameRoomState.PlayerIsAnswering || GameRoomState.PlayerIsChooseingQuestion || GameRoomState.QuestionIsShown): {
         return 'Идёт игра';
       }
       default: {
@@ -34,11 +37,13 @@ export class GameRoomInfoComponent implements OnInit {
   }
   EnterAsHost(): void {
     alert('Вы вошли как ведущий в комнату ' + this.room.name);
-    // доделать, когда будет связь с сервисом
+    this.gameRoomListService.enterRoomAsHost(this.room.id);
+    this.router.navigate(['/room/' + this.room.id]);
   }
   EnterAsPlayer(): void {
     alert('Вы вошли как игрок в комнату ' + this.room.name);
-    // доделать, когда будет связь с сервисом
+    this.gameRoomListService.enterRoomAsPlayer(this.room.id);
+    this.router.navigate(['/room/' + this.room.id]);
   }
 
 
